@@ -1,0 +1,228 @@
+:root {
+    --primary-color: #6b1b1b; /* Color principal cambiado */
+    --secondary-color: #ffffff; /* Color secundario (fondo blanco) */
+    --text-color: #ffffff; /* Color del texto */
+    --hover-color: #f4a261; /* Color al pasar el mouse */
+    --footer-bg-color: #a82b31; /* Color del pie de página */
+    --card-bg-color: #f8f9fa; /* Fondo de las tarjetas */
+    --card-text-color: #333; /* Texto de las tarjetas */
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Asegurar que el contenido ocupe toda la altura de la ventana */
+    margin: 0;
+}
+
+main {
+    flex: 1; /* Hacer que el contenido principal ocupe el espacio restante */
+}
+
+/* Ajusta la altura y el padding de la navbar y sus elementos */
+.navbar {
+    background-color: var(--primary-color) !important; /* Fondo de la navbar */
+    padding: 10px 0 !important; /* Más espacio vertical */
+    min-height: 56px !important; /* Más alta */
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+}
+
+.navbar-brand img {
+    height: 48px !important; /* Logo más grande */
+    max-height: 48px !important;
+    width: auto !important; /* Mantener la proporción */
+}
+
+.navbar-nav .nav-link {
+    color: var(--secondary-color) !important; /* Cambiar el color del texto */
+    font-size: 0.85rem !important;
+    padding: 1px 8px; /* Más delgado el espacio vertical */
+    text-transform: uppercase; /* Opcional: convertir el texto a mayúsculas */
+    padding-top: 2px !important;
+    padding-bottom: 2px !important;
+    line-height: 1.2 !important;
+}
+
+.navbar-nav .nav-link:hover {
+    color: var(--hover-color) !important; /* Cambiar color al pasar el mouse */
+}
+
+.nav-item.dropdown:hover .dropdown-menu-horizontal {
+    display: flex; /* Mostrar el menú al pasar el mouse */
+}
+
+.dropdown-menu-horizontal {
+    display: none; /* Ocultar por defecto */
+    flex-direction: row;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 1000;
+    padding: 0.5rem 0;
+    margin: 0;
+    font-size: 1rem;
+    color: #212529;
+    text-align: left;
+    list-style: none;
+    background-color: #ffffff;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    border-radius: 0.25rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.dropdown-menu-horizontal .dropdown-item {
+    white-space: nowrap;
+    padding: 0.5rem 1rem;
+    border-right: 1px solid #f0f0f0;
+}
+
+.dropdown-menu-horizontal .dropdown-item:last-child {
+    border-right: none;
+}
+
+.dropdown-menu-horizontal .dropdown-item:hover {
+    background-color: #f4a261;
+    color: #ffffff;
+}
+
+footer {
+    background-color: #6b1b1b; /* Fondo rojo */
+    color: #fff !important;    /* Texto blanco */
+    text-align: center;
+    padding: 8px 0 !important;
+    font-size: 0.95rem !important;
+    width: 100%;
+    margin: 0;
+    border: none;
+    font-family: 'Montserrat', 'Arial', sans-serif; /* Fuente bonita y consistente */
+    letter-spacing: 0.03em;
+}
+
+footer p {
+    margin: 0 !important;
+    padding: 0;
+    color: #fff !important; /* Asegura que el texto sea blanco */
+    text-align: center;
+}
+
+.custom-footer,
+.custom-footer p {
+    background-color: #6b1b1b !important;
+    color: #fff !important;
+    text-align: center !important;
+    font-family: 'Montserrat', 'Arial', sans-serif;
+    font-size: 0.95rem !important;
+    margin: 0 !important;
+    padding: 8px 0 !important;
+    border: none !important;
+    letter-spacing: 0.03em;
+}
+
+.btn-primary {
+    background-color: var(--primary-color) !important; /* Fondo del botón */
+    border-color: var(--primary-color) !important; /* Borde del botón */
+}
+
+.btn-primary:hover {
+    background-color: var(--hover-color) !important; /* Fondo al pasar el mouse */
+    border-color: var(--hover-color) !important; /* Borde al pasar el mouse */
+}
+
+.card {
+    background-color: var(--card-bg-color); /* Fondo de las tarjetas */
+    color: var(--card-text-color); /* Texto de las tarjetas */
+    border: none; /* Sin bordes */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Sombra */
+}
+
+.card h3 {
+    color: var(--primary-color); /* Títulos de las tarjetas */
+}
+
+.card a {
+    color: var(--primary-color); /* Enlaces en las tarjetas */
+}
+
+.card a:hover {
+    color: var(--hover-color); /* Enlaces al pasar el mouse */
+}
+
+.bg-dark {
+    background-color:#6b1b1b !important; /* Cambiar el color gris oscuro al rojo */
+    color: white !important; /* Asegurar que el texto sea blanco */
+}
+
+.language-btn {
+    background: #bb7f5b;
+    color: #fff;
+    border: none;
+    padding: 0.3rem 1rem;
+    margin-left: 0.5rem;
+    border-radius: 6px;
+    font-weight: 500;
+    opacity: 1;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+}
+.language-btn[disabled] {
+    background: #e0e0e0;
+    color: #a82b31;
+    opacity: 1;
+    cursor: not-allowed;
+}
+
+.language-btn-sm {
+    background: #fff;
+    border: 1.5px solid #a82b31;
+    color: #a82b31;
+    cursor: pointer;
+    padding: 1px 10px;
+    border-radius: 7px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    margin-left: 4px;
+    margin-right: 0;
+    transition: background 0.18s, color 0.18s, border 0.18s;
+    line-height: 1.1;
+    height: 26px;
+    display: flex;
+    align-items: center;
+}
+.language-btn-sm.active,
+.language-btn-sm:focus {
+    background: #a82b31;
+    color: #fff;
+    border-color: #bb7f5b;
+}
+.language-btn-sm:hover:not(.active) {
+    background: #f7e7e2;
+    color: #a82b31;
+    border-color: #a82b31;
+}
+.language-btn-sm:focus {
+    outline: none !important;
+    box-shadow: 0 0 0 2px #bb7f5b33 !important;
+}
+
+/* Puedes ponerlo en navbar.html o en tu CSS global */
+.language-btn-vertical {
+    border: 1px solid #a82b31;
+    color: #a82b31;
+    background: #fff;
+    border-radius: 6px;
+    font-size: 0.72rem;
+    font-weight: 600;
+    padding: 2px 10px;
+    transition: background 0.2s, color 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    min-width: 80px;
+    justify-content: flex-start;
+}
+.language-btn-vertical.selected,
+.language-btn-vertical:active {
+    background: #a82b31 !important;
+    color: #fff !important;
+}
