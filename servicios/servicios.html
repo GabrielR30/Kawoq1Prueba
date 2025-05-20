@@ -14,70 +14,132 @@
     
     <!-- Estilos adicionales -->
     <link rel="stylesheet" href="../estilo/estilo.css"> <!-- Ruta ajustada -->
+
+    <style>
+        :root {
+            --secondary-color: #b78265;
+            --light-color: #e7decd;
+            --accent-color: #cb9b7c;
+            --text-dark: #333;
+            --text-light: #f8f9fa;
+        }
+
+        /* Título principal y subtítulos */
+        main h1, main h2 {
+            color: var(--secondary-color);
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        main h3, main h4, .card-title {
+            color: var(--accent-color) !important;
+            font-weight: bold;
+        }
+
+        .card-text, main p, .card-body p {
+            color: var(--text-dark) !important;
+        }
+    </style>
 </head>
 <body>
-    <!-- Barra de navegación -->
-    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
-        <div class="container">
-            <a class="navbar-brand" href="../index.html">
-                <img src="../fotos/tu-logo.png" alt="Logo" width="35">
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="../index.html" data-key="nav-home">Inicio</a></li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link" href="../sobre-nosotros/sobre-nosotros.html" id="sobreNosotrosLink" data-key="nav-about">Conócenos</a>
-                        <ul class="dropdown-menu dropdown-menu-horizontal" aria-labelledby="sobreNosotrosLink">
-                            <li><a class="dropdown-item" href="../sobre-nosotros/sobre-nosotros.html#vision" data-key="nav-vision">Visión</a></li>
-                            <li><a class="dropdown-item" href="../sobre-nosotros/sobre-nosotros.html#mision" data-key="nav-mission">Misión</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item"><a class="nav-link" href="servicios.html" data-key="nav-services">Proyectos</a></li>
-                    <li class="nav-item"><a class="nav-link" href="../contacto/contacto.html" data-key="nav-contact">Contáctanos</a></li>
-                    <li class="nav-item"><a class="nav-link" href="../Apoyanos/apoyanos.html" data-key="nav-support">Apóyanos</a></li>
-                    <li class="nav-item"><a class="nav-link" href="../fotos/fotos.html" data-key="nav-photos">Fotos</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+    <!-- Navbar global -->
+    <div id="navbar-container"></div>
 
     <!-- Contenido principal -->
     <main class="container mt-5 pt-5">
-        <h1 class="text-center mb-4">Nuestros Servicios</h1>
-        <p class="text-center">Ofrecemos una variedad de servicios para mejorar el acceso a la información y el apoyo a nuestra comunidad.</p>
+        <h1 class="text-center mb-4">Nuestros Proyectos y Acciones</h1>
+        <div class="row mb-4">
+            <div class="col-lg-6 mb-3">
+                <div class="p-4 bg-light rounded shadow-sm h-100">
+                    <h3 class="mb-3">Impulsando el Cambio Social</h3>
+                    <p>
+                        En KAWOQ ONG creemos que el desarrollo de Guatemala depende de la solidaridad y el compromiso de todos. Por eso, trabajamos en proyectos que promueven el auto sostenimiento, el acceso a la salud, la educación y el trabajo digno, brindando oportunidades reales a quienes más lo necesitan.
+                    </p>
+                    <p>
+                        Nuestros programas están diseñados para fortalecer las capacidades de las comunidades, fomentar el emprendimiento y crear redes de apoyo que permitan a las familias salir adelante por sí mismas.
+                    </p>
+                </div>
+            </div>
+            <div class="col-lg-6 mb-3">
+                <div class="p-4 bg-light rounded shadow-sm h-100">
+                    <h3 class="mb-3">Valores que Transforman</h3>
+                    <p>
+                        Cada proyecto que realizamos está guiado por valores como el compromiso, la igualdad y el respeto a los derechos humanos. Trabajamos en equipo, sumando esfuerzos con aliados y voluntarios, para lograr un impacto positivo y duradero en la sociedad guatemalteca.
+                    </p>
+                    <p>
+                        Además, promovemos la transparencia y el uso responsable de los recursos, asegurando que cada donativo y aporte se traduzca en acciones concretas para el bienestar de las comunidades.
+                    </p>
+                </div>
+            </div>
+        </div>
 
-        <section class="row mt-4">
+        <div class="row mb-4">
+            <div class="col-lg-4 mb-3">
+                <div class="p-4 bg-light rounded shadow-sm h-100">
+                    <h4 class="mb-3">Cuidado del Medio Ambiente</h4>
+                    <p>
+                        Fomentamos prácticas sostenibles y la educación ambiental en todas nuestras actividades. Desde la reforestación hasta el reciclaje, buscamos reducir nuestro impacto y crear conciencia sobre la importancia de preservar los recursos naturales para las futuras generaciones.
+                    </p>
+                </div>
+            </div>
+            <div class="col-lg-4 mb-3">
+                <div class="p-4 bg-light rounded shadow-sm h-100">
+                    <h4 class="mb-3">Apoyo Integral</h4>
+                    <p>
+                        Ofrecemos acompañamiento y consejería a familias y personas en situación vulnerable, facilitando el acceso a servicios básicos y promoviendo el desarrollo integral a través de talleres, capacitaciones y actividades comunitarias.
+                    </p>
+                </div>
+            </div>
+            <div class="col-lg-4 mb-3">
+                <div class="p-4 bg-light rounded shadow-sm h-100">
+                    <h4 class="mb-3">Participación Comunitaria</h4>
+                    <p>
+                        Creemos en la fuerza de la comunidad. Por eso, involucramos a líderes locales, jóvenes y adultos en la planificación y ejecución de los proyectos, asegurando que cada acción responda a las verdaderas necesidades de la población.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <h2 class="text-center my-5">Galería de Proyectos y Comunidad</h2>
+        <div class="row g-4">
             <div class="col-md-4">
-                <div class="card shadow-sm">
-                    <img src="../fotos/servicio1.jpg" class="card-img-top" alt="Educación">
+                <div class="card shadow-sm h-100">
+                    <img src="../fotos/articulo1.jpg" class="card-img-top" alt="Educación rural">
                     <div class="card-body">
-                        <h5 class="card-title">Educación</h5>
-                        <p class="card-text">Brindamos programas educativos para niños y adultos en comunidades vulnerables.</p>
+                        <h5 class="card-title"></h5>
+                        <p class="card-text"></p>
                     </div>
                 </div>
             </div>
             <div class="col-md-4">
-                <div class="card shadow-sm">
-                    <img src="../fotos/servicio2.jpg" class="card-img-top" alt="Salud">
+                <div class="card shadow-sm h-100">
+                    <img src="../fotos/articulo2.jpg" class="card-img-top" alt="Salud y prevención">
                     <div class="card-body">
-                        <h5 class="card-title">Salud</h5>
-                        <p class="card-text">Ofrecemos campañas de salud y acceso a atención médica para quienes más lo necesitan.</p>
+                        <h5 class="card-title"></h5>
+                        <p class="card-text"></p>
                     </div>
                 </div>
             </div>
             <div class="col-md-4">
-                <div class="card shadow-sm">
-                    <img src="../fotos/servicio3.jpg" class="card-img-top" alt="Desarrollo Comunitario">
+                <div class="card shadow-sm h-100">
+                    <img src="../fotos/articulo3.jpg" class="card-img-top" alt="Emprendimiento local">
                     <div class="card-body">
-                        <h5 class="card-title">Desarrollo Comunitario</h5>
-                        <p class="card-text">Impulsamos proyectos sostenibles para mejorar la calidad de vida de las comunidades.</p>
+                        <h5 class="card-title"></h5>
+                        <p class="card-text"></p>
                     </div>
                 </div>
             </div>
-        </section>
+            <div class="col-md-4">
+                <div class="card shadow-sm h-100">
+                    <img src="../fotos/articulo4.jpg" class="card-img-top" alt="Reforestación">
+                    <div class="card-body">
+                        <h5 class="card-title"></h5>
+                        <p class="card-text"></p>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
     </main>
 
     <!-- Pie de página -->
@@ -87,5 +149,13 @@
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Navbar global loader -->
+    <script>
+    fetch('../partials/navbar.html')
+      .then(res => res.text())
+      .then(html => {
+        document.getElementById('navbar-container').innerHTML = html;
+      });
+    </script>
 </body>
 </html>

@@ -1,11 +1,15 @@
 <!-- partials/navbar.html -->
-<nav class="navbar navbar-expand-lg nav-bar">
-    <div class="container px-0">
+<nav class="navbar navbar-expand-lg nav-bar position-relative">
+    <div class="container px-0 position-relative d-flex align-items-center" style="min-height:56px;">
+        <!-- Logo como enlace al inicio -->
+        <a href="../index.html" class="navbar-brand d-flex align-items-center" style="margin-right: 1.5rem;">
+            <img src="/tu-logo.png" alt="Logo" width="50">
+        </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
+        <div class="collapse navbar-collapse flex-grow-1" id="navbarNav">
+            <ul class="navbar-nav me-auto nav-move-left">
                 <li class="nav-item">
                     <a class="nav-link" href="../index.html" data-key="nav-home">Inicio</a>
                 </li>
@@ -16,151 +20,100 @@
                         <li><a class="dropdown-item" href="../sobre-nosotros/sobre-nosotros.html#mision" data-key="nav-mission">Misión</a></li>
                     </ul>
                 </li>
-                <li class="nav-item"><a class="nav-link" href="../servicios/servicios.html" data-key="nav-services">Servicios</a></li>
+                <li class="nav-item"><a class="nav-link" href="../servicios/servicios.html" data-key="nav-services">Proyectos</a></li>
                 <li class="nav-item"><a class="nav-link" href="../contacto/contacto.html" data-key="nav-contact">Contáctanos</a></li>
                 <li class="nav-item"><a class="nav-link" href="../Apoyanos/apoyanos.html" data-key="nav-support">Apóyanos</a></li>
                 <li class="nav-item"><a class="nav-link" href="../fotos/fotos.html" data-key="nav-photos">Fotos</a></li>
             </ul>
-            <div class="d-flex d-lg-none mt-2 gap-2">
-                <button class="language-btn" onclick="changeLanguage('es')">
-                    <i class="fas fa-globe-americas"></i> Español
-                </button>
-                <button class="language-btn" onclick="changeLanguage('en')">
-                    <i class="fas fa-globe"></i> English
-                </button>
-            </div>
+        </div>
+        <!-- Botones de idioma alineados al centro de la navbar -->
+        <div class="lang-buttons d-none d-lg-flex flex-row align-items-center ms-3">
+            <button class="lang-btn-mini me-2" onclick="changeLanguage('es')" title="Español">Español</button>
+            <button class="lang-btn-mini" onclick="changeLanguage('en')" title="English">English</button>
         </div>
     </div>
 </nav>
-
-<!-- En la cabecera -->
-<div class="brand-lang-top d-none d-lg-flex">
-    <button class="language-btn" onclick="changeLanguage('es')">
-        <i class="fas fa-globe-americas"></i> Español
-    </button>
-    <button class="language-btn" onclick="changeLanguage('en')">
-        <i class="fas fa-globe"></i> English
-    </button>
-</div>
 
 <style>
     .nav-bar {
         background: transparent;
         padding: 0;
-        min-height: 31px; /* Más delgado */
+        min-height: 31px;
         border: 1px solid #000000;
     }
-    
+
     .navbar-nav {
         flex-direction: row !important;
         width: 100%;
         justify-content: flex-end;
     }
-    
+
+    .nav-move-left {
+        margin-left: 40px; /* Ajusta este valor para dejar espacio a los botones de idioma */
+    }
+
     .navbar-nav .nav-link {
         color: #ffffff !important;
-        padding: 0.3rem 1rem !important; /* Menos padding vertical */
-        font-size: 0.85rem; /* Texto más pequeño */
+        padding: 0.3rem 1rem !important;
+        font-size: 0.85rem;
         text-decoration: none !important;
         background: transparent !important;
         border: none !important;
         margin: 0;
         font-weight: 500;
         text-align: center;
-        height: 32px; /* Ajusta la altura */
+        height: 32px;
         display: flex;
         align-items: center;
+        transition: color 0.2s;
     }
-    
-    /* Eliminar borde derecho del último item */
-    .navbar-nav > li:last-child .nav-link {
-        border-right: none;
-    }
-    
-    /* Efecto hover y activo SIN fondo */
+
     .navbar-nav .nav-link.active,
     .navbar-nav .nav-link:hover {
         background: transparent !important;
-        color: #fff !important;
+        color: #f4a261 !important;
         box-shadow: none !important;
     }
-    
-    /* Dropdown estilo celda excel */
-    .dropdown-menu-horizontal {
-        display: none;
-        flex-direction: row;
-        position: absolute;
-        top: 100%;
-        right: 0;
-        z-index: 1000;
-        padding: 0;
+
+    .lang-buttons {
+        gap: 8px;
+    }
+    .lang-btn-mini {
+        background: #fff;
+        color: #6b1b1b;
+        border: 1px solid #6b1b1b;
+        border-radius: 6px;
+        font-size: 0.75rem;
+        font-weight: bold;
+        padding: 2px 10px;
+        line-height: 1.2;
+        transition: background 0.2s, color 0.2s, border 0.2s;
+        box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+        cursor: pointer;
+        outline: none;
         margin: 0;
-        font-size: 0.9rem;
-        color: #212529;
-        text-align: center;
-        list-style: none;
-        background-color: #ffffff;
-        border: 1px solid #000000;
-        border-top: none;
-        box-shadow: none;
+        min-width: 32px;
+        min-height: 22px;
     }
-    
-    .nav-item.dropdown:hover .dropdown-menu-horizontal {
-        display: flex;
+    .lang-btn-mini:hover, .lang-btn-mini:focus {
+        background: #6b1b1b;
+        color: #fff;
+        border-color: #6b1b1b;
     }
-    
-    .dropdown-menu-horizontal .dropdown-item {
-        white-space: nowrap;
-        padding: 0.8rem 1.5rem;
-        border-right: 1px solid #000000;
-        color: #000000;
-    }
-    
-    .dropdown-menu-horizontal .dropdown-item:hover {
-        background-color: #f5f5f5;
-    }
-    
-    .dropdown-menu-horizontal .dropdown-item:last-child {
-        border-right: none;
-    }
-    
-    /* Toggler para móvil */
-    .navbar-toggler {
-        padding: 0.3rem 0.5rem;
-        border: 1px solid #000000;
-    }
-    
-    .navbar-toggler-icon {
-        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%280, 0, 0, 1%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
-    }
-    
-    /* Estilos para móvil */
+
     @media (max-width: 991.98px) {
         .navbar-nav {
             flex-direction: column !important;
             width: 100%;
             justify-content: flex-start;
         }
-        .navbar-nav .nav-link {
-            border-right: none !important;
-            border-bottom: 1px solid #000000;
-            text-align: left;
-            width: 100%;
+        .nav-move-left {
+            margin-left: 0;
         }
-        .dropdown-menu-horizontal {
-            position: static;
-            flex-direction: column;
-            border: none;
-            border-top: 1px solid #000000;
-            width: 100%;
-            min-width: 0;
-        }
-        .dropdown-menu-horizontal .dropdown-item {
-            border-right: none !important;
-            border-bottom: 1px solid #000000;
-            width: 100%;
-            text-align: left;
+        .lang-buttons {
+            top: 6px !important;
+            right: 6px !important;
+            flex-direction: row !important;
         }
     }
-    
 </style>

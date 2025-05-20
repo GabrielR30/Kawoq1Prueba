@@ -138,9 +138,11 @@
             
             .brand-slogan {
                 font-size: 0.95rem;
-                padding-left: 90px; /* Alineado con logo */
-                margin-top: -30px; /* Subir para alinear */
-                width: calc(100% - 90px);
+                padding-left: 0;
+                margin-top: 10px;      /* Añade espacio arriba */
+                width: 100%;
+                text-align: center;    /* Centra el texto */
+                display: block;
             }
             
             /* Ocultar botones de idioma duplicados en navbar móvil */
@@ -387,6 +389,29 @@
             background: #6b1b1b !important;
             border-top: 2px solid #994319;
         }
+
+        /* Oculta los botones del header en móvil */
+        @media (max-width: 991.98px) {
+          .brand-lang-top {
+            display: none !important;
+          }
+        }
+
+        /* Oculta los botones de idioma pequeños de la navbar global en index SOLO en escritorio */
+        body[data-page="index"] .lang-buttons {
+          display: none !important;
+        }
+
+        body[data-page="index"] .navbar .brand-logo {
+            display: none !important;
+        }
+
+        body[data-page="index"] .navbar .brand-logo,
+        body[data-page="index"] .navbar .navbar-brand,
+        body[data-page="index"] .navbar img {
+            display: none !important;
+        }
+       
     </style>
 </head>
 <body data-page="index">
@@ -402,7 +427,7 @@
             </button>
         </div>
         <div class="container brand-container">
-            <img src="./fotos/tu-logo.png" alt="Logo KAWOO ONG" class="brand-logo">
+            <img src="/tu-logo.png" alt="Logo KAWOQ ONG" class="brand-logo">
             <div class="brand-name-container">
                 <span class="brand-name" data-key="brand-title"></span>
                 <span class="brand-subname" data-key="brand-subtitle"></span>
@@ -420,13 +445,10 @@
     <div id="mainCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
         <div class="carousel-inner">
             <div class="carousel-item active">
-                <img src="./fotos/articulo1.jpg" class="d-block w-100" alt="Imagen 1">
+                <img src="./fotos/CarouselKawo1.png" class="d-block w-100" alt="Imagen 1">
             </div>
             <div class="carousel-item">
-                <img src="./fotos/articulo2.jpg" class="d-block w-100" alt="Imagen 2">
-            </div>
-            <div class="carousel-item">
-                <img src="./fotos/articulo3.jpg" class="d-block w-100" alt="Imagen 3">
+                <img src="./fotos/CarouselKawo2.png" class="d-block w-100" alt="Imagen 2">
             </div>
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#mainCarousel" data-bs-slide="prev">
@@ -444,8 +466,10 @@
                     <div class="icon-circle-large mb-4">
                         <i class="fas fa-hands-helping"></i>
                     </div>
-                    <h3 data-key="impact-subtitle">Solidaridad que transforma</h3>
-                    <p class="impact-text" data-key="impact-content">A lo largo de la historia, Guatemala ha demostrado ser un país que siempre busca superar cualquier percance que se presente, esto, gracias a la solidaridad que muestra cada ciudadano frente a su prójimo. Hoy en día la población supera los dieciocho millones de ciudadanos y más de la mitad carecen de opciones para salir adelante, por lo que es de vital importancia apoyar, promover e incentivar métodos y programas que ayuden al auto sostenimiento, el cuidado de la salud, emprendimiento, desarrollo social y trabajo digno.</p>
+                    <h3 data-key="impact-subtitle" class="text-center">Solidaridad que transforma</h3>
+                    <p class="impact-text text-start" data-key="impact-content">
+                        A lo largo de la historia, Guatemala ha demostrado ser un país que siempre busca superar cualquier percance que se presente, esto, gracias a la solidaridad que muestra cada ciudadano frente a su prójimo. Hoy en día la población supera los dieciocho millones de ciudadanos y más de la mitad carecen de opciones para salir adelante, por lo que es de vital importancia apoyar, promover e incentivar métodos y programas que ayuden al auto sostenimiento, el cuidado de la salud, emprendimiento, desarrollo social y trabajo digno.
+                    </p>
                 </div>
             </div>
         </div>

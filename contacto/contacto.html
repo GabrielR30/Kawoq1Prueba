@@ -15,150 +15,219 @@
 
     <style>
         :root {
-            --primary-color: #6b1b1b;
-            --secondary-color: #a82b31;
-            --whatsapp-color: #25D366;
-            --email-color: #D44638;
-            --suggestions-color: #6c757d;
+            --secondary-color: #b78265;
+            --light-color: #e7decd;
+            --accent-color: #cb9b7c;
+            --text-dark: #333;
+            --text-light: #f8f9fa;
         }
         
+        /* Encabezado con gradiente */
         .contact-header {
-            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('../fotos/contact-bg.jpg');
-            background-size: cover;
-            background-position: center;
-            color: white;
-            padding: 80px 0;
+            --primary-color: #994319; /* SOLO aquí, para el header */
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: var(--light-color);
+            padding: 40px 0 30px !important;
             margin-bottom: 40px;
+            position: relative;
+            overflow: hidden;
+            margin-top: 0 !important; /* Antes: margin-top: 55px !important; */
         }
         
+        .contact-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('../fotos/contact-pattern.png') center/cover;
+            opacity: 0.1;
+        }
+        
+        .contact-header h1 {
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+            position: relative;
+        }
+        
+        .contact-header p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto;
+            position: relative;
+        }
+        
+        /* Tarjetas de contacto */
         .contact-card {
-            border-radius: 15px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            transition: transform 0.3s;
-            margin-bottom: 20px;
+            border-radius: 12px;
             border: none;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            height: 100%;
+            background-color: var(--light-color);
         }
         
         .contact-card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.12);
         }
         
-        .whatsapp-btn {
-            background-color: var(--whatsapp-color);
-            color: white;
+        .contact-card .card-body {
+            padding: 2rem;
+        }
+        
+        .contact-card h3 {
+            color: var(--primary-color);
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+        
+        .contact-card h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: var(--accent-color);
+        }
+        
+        .contact-card .card-text {
+            color: var(--text-dark);
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+        
+        /* Botones */
+        .btn-custom {
+            border: none;
             border-radius: 50px;
-            padding: 10px 20px;
+            padding: 12px 25px;
+            font-weight: 500;
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            text-decoration: none;
             transition: all 0.3s;
+            text-decoration: none;
+        }
+        
+        .whatsapp-btn {
+            background-color: #25D366;
+            color: white;
         }
         
         .whatsapp-btn:hover {
             background-color: #128C7E;
             color: white;
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(18, 140, 126, 0.3);
         }
         
         .email-btn {
-            background-color: var(--email-color);
+            background-color: var(--accent-color);
             color: white;
-            border-radius: 50px;
-            padding: 10px 20px;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            text-decoration: none;
-            transition: all 0.3s;
         }
         
         .email-btn:hover {
-            background-color: #b1372c;
+            background-color: var(--secondary-color);
             color: white;
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(183, 130, 101, 0.3);
         }
         
         .suggestions-btn {
-            background-color: var(--suggestions-color);
+            background-color: var(--primary-color);
             color: white;
-            border-radius: 50px;
-            padding: 10px 20px;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            text-decoration: none;
-            transition: all 0.3s;
         }
         
         .suggestions-btn:hover {
-            background-color: #5a6268;
+            background-color: #7a3513;
             color: white;
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-        }
-        
-        .form-control, .form-select {
-            border-radius: 10px !important;
-            padding: 10px 15px;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(153, 67, 25, 0.3);
         }
         
         .btn-submit {
             background-color: var(--primary-color);
-            border: none;
-            padding: 10px 25px;
-            border-radius: 50px;
+            color: white;
+            padding: 12px 30px;
             font-weight: 500;
         }
         
         .btn-submit:hover {
             background-color: var(--secondary-color);
+            color: white;
         }
         
+        /* Iconos */
         .contact-icon {
             font-size: 1.5rem;
             margin-right: 10px;
+            color: var(--primary-color);
         }
         
-        /* Filtro de palabras obscenas */
+        /* Formularios */
+        .form-control, .form-select {
+            border-radius: 8px !important;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            transition: all 0.3s;
+        }
+        
+        .form-control:focus, .form-select:focus {
+            border-color: var(--accent-color);
+            box-shadow: 0 0 0 0.25rem rgba(203, 155, 124, 0.25);
+        }
+        
+        /* Filtro de palabras */
         .obscenity-alert {
-            color: red;
-            font-size: 0.8rem;
+            color: #dc3545;
+            font-size: 0.85rem;
             display: none;
+            margin-top: 5px;
+        }
+        
+        /* Modal de sugerencias */
+        .modal-content {
+            border-radius: 12px;
+            overflow: hidden;
+            border: none;
+        }
+        
+        .modal-header {
+            background-color: var(--primary-color);
+            color: white;
+            border-bottom: none;
+        }
+        
+        .modal-body {
+            background-color: var(--light-color);
+        }
+        
+        .modal-footer {
+            background-color: var(--light-color);
+            border-top: none;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .contact-header {
+                padding: 30px 0 20px !important;
+            }
+            
+            .contact-card {
+                margin-bottom: 30px;
+            }
         }
     </style>
 </head>
 <body>
-    <!-- Barra de navegación -->
-    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
-        <div class="container">
-            <a class="navbar-brand" href="../index.html">
-                <img src="../fotos/tu-logo.png" alt="Logo" width="35">
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="../index.html" data-key="nav-home">Inicio</a></li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link" href="../sobre-nosotros/sobre-nosotros.html" id="sobreNosotrosLink" data-key="nav-about">Conócenos</a>
-                        <ul class="dropdown-menu dropdown-menu-horizontal" aria-labelledby="sobreNosotrosLink">
-                            <li><a class="dropdown-item" href="../sobre-nosotros/sobre-nosotros.html#vision" data-key="nav-vision">Visión</a></li>
-                            <li><a class="dropdown-item" href="../sobre-nosotros/sobre-nosotros.html#mision" data-key="nav-mission">Misión</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item"><a class="nav-link" href="../servicios/servicios.html" data-key="nav-services">Proyectos</a></li>
-                    <li class="nav-item"><a class="nav-link active" href="contacto.html" data-key="nav-contact">Contáctanos</a></li>
-                    <li class="nav-item"><a class="nav-link" href="../Apoyanos/apoyanos.html" data-key="nav-support">Apóyanos</a></li>
-                    <li class="nav-item"><a class="nav-link" href="../fotos/fotos.html" data-key="nav-photos">Fotos</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-
+    <!-- Navbar global -->
+    <div id="navbar-container"></div>
     <!-- Encabezado -->
     <header class="contact-header text-center">
         <div class="container">
@@ -169,72 +238,29 @@
 
     <!-- Contenido principal -->
     <main class="container mb-5">
-        <div class="row">
+        <div class="row g-4">
             <!-- Información de contacto -->
             <div class="col-lg-6">
-                <div class="contact-card card mb-4">
+                <div class="contact-card card h-100">
                     <div class="card-body">
                         <h3 class="card-title mb-4"><i class="fas fa-envelope contact-icon"></i>Correo electrónico</h3>
                         <p class="card-text">asociacionkawoq@gmail.com</p>
-                        <a href="mailto:asociacionkawoq@gmail.com" class="email-btn mt-3">
+                        <a href="mailto:asociacionkawoq@gmail.com?subject=Consulta%20Kawoq&body=Hola%2C%20quisiera%20más%20información%20por%20favor." class="btn-custom email-btn mt-3">
                             <i class="fas fa-paper-plane me-2"></i> Enviar correo
-                        </a>
-                    </div>
-                </div>
-                
-                <div class="contact-card card mb-4">
-                    <div class="card-body">
-                        <h3 class="card-title mb-4"><i class="fas fa-phone-alt contact-icon"></i>Teléfono y WhatsApp</h3>
-                        <p class="card-text">3998 8654</p>
-                        <a href="https://wa.me/50239988654" target="_blank" class="whatsapp-btn mt-3">
-                            <i class="fab fa-whatsapp me-2"></i> Contactar por WhatsApp
                         </a>
                     </div>
                 </div>
             </div>
             
-            <!-- Formulario de contacto -->
             <div class="col-lg-6">
-                <div class="contact-card card">
+                <div class="contact-card card h-100">
                     <div class="card-body">
-                        <h3 class="card-title mb-4">Formulario de Contacto</h3>
-                        <form id="contactForm">
-                            <div class="mb-3">
-                                <label for="name" class="form-label">Nombre completo</label>
-                                <input type="text" class="form-control" id="name" required>
-                            </div>
-                            <div class="mb-3">
-                                <label for="email" class="form-label">Correo electrónico</label>
-                                <input type="email" class="form-control" id="email" required>
-                            </div>
-                            <div class="mb-3">
-                                <label for="subject" class="form-label">Asunto</label>
-                                <select class="form-select" id="subject" required>
-                                    <option value="" selected disabled>Selecciona un asunto</option>
-                                    <option value="Consulta general">Consulta general</option>
-                                    <option value="Donaciones">Donaciones</option>
-                                    <option value="Voluntariado">Voluntariado</option>
-                                    <option value="Proyectos">Proyectos</option>
-                                    <option value="Otro">Otro</option>
-                                </select>
-                            </div>
-                            <div class="mb-3">
-                                <label for="message" class="form-label">Mensaje</label>
-                                <textarea class="form-control" id="message" rows="5" required></textarea>
-                                <div class="obscenity-alert mt-1" id="obscenityAlert">
-                                    Por favor evita lenguaje inapropiado
-                                </div>
-                            </div>
-                            <button type="submit" class="btn btn-primary btn-submit">Enviar mensaje</button>
-                        </form>
+                        <h3 class="card-title mb-4"><i class="fas fa-phone-alt contact-icon"></i>Teléfono y WhatsApp</h3>
+                        <p class="card-text">3998 8654</p>
+                        <a href="https://wa.me/50239988654?text=Hola%20Kawoq%2C%20quiero%20más%20información%20por%20favor." target="_blank" class="btn-custom whatsapp-btn mt-3">
+                            <i class="fab fa-whatsapp me-2"></i> Contactar por WhatsApp
+                        </a>
                     </div>
-                </div>
-                
-                <!-- Botón de sugerencias -->
-                <div class="text-center mt-4">
-                    <button class="suggestions-btn" data-bs-toggle="modal" data-bs-target="#suggestionsModal">
-                        <i class="fas fa-lightbulb me-2"></i> Dejar sugerencia o comentario
-                    </button>
                 </div>
             </div>
         </div>
@@ -242,7 +268,7 @@
 
     <!-- Modal de Sugerencias -->
     <div class="modal fade" id="suggestionsModal" tabindex="-1" aria-labelledby="suggestionsModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
+        <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="suggestionsModalLabel">Sugerencias y Comentarios</h5>
@@ -272,7 +298,7 @@
     </div>
 
     <!-- Pie de página -->
-    <footer class="bg-dark text-white text-center py-4">
+    <footer class="bg-dark text-white text-center py-4 mt-5">
         <div class="container">
             <p class="mb-0">&copy; 2025 KAWOQ ONG. Todos los derechos reservados.</p>
         </div>
@@ -283,13 +309,14 @@
     
     <!-- Script para filtro de palabras y envío de formularios -->
     <script>
-        // Lista de palabras obscenas (puedes ampliarla)
-        const obsceneWords = ['palabra1', 'palabra2', 'palabra3']; // Reemplaza con palabras reales
+        // Lista de palabras obscenas (ampliar según necesidad)
+        const obsceneWords = ['palabra1', 'palabra2', 'palabra3', 'insulto1', 'insulto2'];
         
         // Función para detectar lenguaje inapropiado
         function containsObscenity(text) {
+            if (!text) return false;
             const lowerText = text.toLowerCase();
-            return obsceneWords.some(word => lowerText.includes(word));
+            return obsceneWords.some(word => lowerText.includes(word.toLowerCase()));
         }
         
         // Validación del formulario de contacto
@@ -323,8 +350,7 @@
                 return;
             }
             
-            // Aquí iría el código para enviar el formulario
-            // Puedes usar FormSubmit, EmailJS o tu backend
+            // Simulación de envío (reemplazar con código real)
             alert('Mensaje enviado con éxito. Nos pondremos en contacto contigo pronto.');
             this.reset();
         });
@@ -338,11 +364,19 @@
                 return;
             }
             
-            // Aquí iría el código para enviar la sugerencia
+            // Simulación de envío (reemplazar con código real)
             alert('Gracias por tu sugerencia. Valoramos mucho tu opinión.');
             document.getElementById('suggestionsForm').reset();
             bootstrap.Modal.getInstance(document.getElementById('suggestionsModal')).hide();
         });
+    </script>
+    <!-- Navbar global -->
+    <script>
+    fetch('../partials/navbar.html')
+      .then(res => res.text())
+      .then(html => {
+        document.getElementById('navbar-container').innerHTML = html;
+      });
     </script>
 </body>
 </html>
